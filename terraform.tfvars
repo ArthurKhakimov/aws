@@ -1,0 +1,12 @@
+region               = "us-east-1"
+az1                  = "us-east-1a"
+az2                  = "us-east-1b"
+vpc1_cidr            = "192.168.0.0/16"
+public_subnet_vpc1   = "192.168.10.0/24"
+private_subnet_vpc1  = "192.168.20.0/24"
+vpc2_cidr            = "10.10.0.0/16"
+public_subnet_vpc2   = "10.10.10.0/24"
+private_subnet_vpc2  = "10.10.20.0/24"
+public_subnet3_vpc2  = "10.10.30.0/24"
+private_subnet3_vpc2 = "10.10.40.0/24"
+common_tags          = { Environment = "Test" }
