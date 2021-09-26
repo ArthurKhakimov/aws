@@ -4,20 +4,11 @@ resource "aws_launch_template" "my_template" {
   instance_initiated_shutdown_behavior = "terminate"
   instance_type                        = "t2.micro"
   key_name                             = "Bastion-key"
-  vpc_security_group_ids               = [aws_security_group.bastion_host_vpc2.id]
+  vpc_security_group_ids               = [aws_security_group.sg_ec2_private_vpc2.id]
   iam_instance_profile {
     name = aws_iam_instance_profile.s3_access_profile.id
   }
-  /*  network_interfaces {
-    associate_public_ip_address = true
-  }
-  block_device_mappings {
-    device_name = "/dev/sda1"
 
-    ebs {
-      volume_size = 8
-    }
-  }*/
 }
 
 resource "aws_autoscaling_group" "my_asg" {

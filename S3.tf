@@ -22,13 +22,14 @@ resource "aws_s3_bucket_object" "upload_file" {
   acl    = "private"
   key    = "testfile"
   source = "testfile.txt"
-  etag   = filemd5("testfile.txt")
+  #etag   = filemd5("testfile.txt")
 }
 
 resource "null_resource" "change_file" {
   provisioner "local-exec" {
     command = "echo 'Changed by terraform' >> testfile.txt"
   }
+  depends_on = [aws_s3_bucket_object.upload_file]
 }
 
 resource "aws_s3_bucket_object" "upload_file_after_change" {
